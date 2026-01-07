@@ -4,5 +4,8 @@ namespace App\Http\Controllers;
 
 abstract class Controller
 {
-    //
+    public function clients()
+    {
+        return $this->hasMany(Client::class);
+    }
 }

@@ -14,6 +14,10 @@ Route::get('/', function () {
     ]);
 });
 
+Route::resource('clients', ClientController::class);
+Route::resource('clients.leads', LeadController::class)->shallow();
+Route::resource('leads.referrals', ReferralController::class)->shallow();
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
